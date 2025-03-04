@@ -1,0 +1,49 @@
+Pod creation command difectly without any yaml file.
+====================================================
+kubectl run pod -- image httpd
+-------------------
+
+Basic yaml pod creation file
+====================================
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webserverpod1
+spec:
+  containers:
+  - name: webservercontainer1
+    image: nginx:latest
+=====================================
+
+K8s pod creation command
+----------------
+kubectl create -f pod file name <It will create a pod only once, and if we make any changes in manifest file it will not work.>
+
+kubectl  apply -f pod fle name <It will append the changes and create the pod in a container>
+
+kubectl  apply -f mypod.yaml <# EXAMPLE>
+
+----------------
+
+K8s pod checking command
+----------------
+kubectl get pods <It will show all the pods in the container>
+
+kubectl get po <It will also show the pods in the container>
+
+kubectl get pods -w <It will watch the pods running & to exit from watching use ctrl+c>
+
+kubectl get pods -o=wide <It will show all the details of the pod (like IP, Pod name, Node name, Age, Status etc.)>
+
+kubectl describe pod pod name <It will show the log of the pod like any error occured or any crash happened etc.>
+
+kubectl describe pod webserverpod1 <# EXAMPLE>
+
+----------------
+
+K8s node checking command
+----------------
+kubectl get nodes <It will show all the nodes in the container>
+
+kubectl get nodes -o=wide <It will show more information about the nodes in the container>
+
